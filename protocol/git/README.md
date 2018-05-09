@@ -3,6 +3,8 @@ Git Protocol
 
 A guide for programming within version control.
 
+[Pro Git](https://git-scm.com/book/en/v2)
+
 Maintain a Repo
 ---------------
 
@@ -47,7 +49,7 @@ Write a [good commit message]. Example format:
 
     http://project.management-system.com/ticket/123
 
-If you've created more than one commit,
+If you've miscreated more than one commit,
 [use `git rebase` interactively](https://help.github.com/articles/about-git-rebase/)
 to squash them into cohesive commits with good messages:
 
@@ -87,6 +89,10 @@ When satisfied, they comment on the pull request `Ready to merge.`
 
 Merge
 -----
+
+> TL;DR
+>
+> Click the auto `Merge` button or follow the instructions of manual merge on GitHub
 
 Rebase interactively. Squash commits like "Fix whitespace" into one or a
 small number of valuable commit(s). Edit commit messages to reveal intent. Run
