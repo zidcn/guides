@@ -13,6 +13,7 @@ General
 * Don't write code that guesses at future functionality.
 * Exceptions should be exceptional.
 * Keep the code simple.
+* Keep the code expressive.
 
 Object-Oriented Design
 ----------------------
@@ -34,29 +35,8 @@ Ruby
 
 * Avoid optional parameters. Does the method do too much?
 * Avoid monkey-patching.
-* Generate necessary [Bundler binstubs] for the project, such as `rake` and
-  `rspec`, and add them to version control.
-* Prefer classes to modules when designing functionality that is shared by
-  multiple models.
 * Prefer `private` when indicating scope. Use `protected` only with comparison
   methods like `def ==(other)`, `def <(other)`, and `def >(other)`.
-
-[Bundler binstubs]: https://github.com/sstephenson/rbenv/wiki/Understanding-binstubs
-
-Ruby Gems
----------
-
-* Declare dependencies in the `<PROJECT_NAME>.gemspec` file.
-* Reference the `gemspec` in the `Gemfile`.
-* Use [Appraisal] to test the gem against multiple versions of gem dependencies
-  (such as Rails in a Rails engine).
-* Use [Bundler] to manage the gem's dependencies.
-* Use [Travis CI] for Continuous Integration, indicators showing whether GitHub
-  pull requests can be merged, and to test against multiple Ruby versions.
-
-[Appraisal]: https://github.com/thoughtbot/appraisal
-[Bundler]: http://bundler.io
-[Travis CI]: http://travis-ci.org
 
 Rails
 -----
@@ -75,20 +55,16 @@ Rails
   from view templates.
 * Don't use SQL or SQL fragments (`where('inviter_id IS NOT NULL')`) outside of
   models.
-* Generate necessary [Spring binstubs] for the project, such as `rake` and
-  `rspec`, and add them to version control.
 * If there are default values, set them in migrations.
 * Keep `db/schema.rb` or `db/development_structure.sql` under version control.
 * Use only one instance variable in each view.
 * Use SQL, not `ActiveRecord` models, in migrations.
-* Use the [`.ruby-version`] file convention to specify the Ruby version and
   patch level for a project.
 * Use `_url` suffixes for named routes in mailer views and [redirects].  Use
   `_path` suffixes for named routes everywhere else.
 * Validate the associated `belongs_to` object (`user`), not the database column
   (`user_id`).
 * Use `db/seeds.rb` for data that is required in all environments.
-* Use `dev:prime` rake task for development environment seed data.
 * Prefer `cookies.signed` over `cookies` to [prevent tampering].
 * Prefer `Time.current` over `Time.now`
 * Prefer `Date.current` over `Date.today`
@@ -109,25 +85,18 @@ Rails
 Testing
 -------
 
-* Avoid `any_instance` in rspec-mocks and mocha. Prefer [dependency injection].
-* Avoid `its`, `specify`, and `before` in RSpec.
-* Avoid `let` (or `let!`) in RSpec. Prefer extracting helper methods,
-  but do not re-implement the functionality of `let`. [Example][avoid-let].
-* Avoid using `subject` explicitly *inside of an* RSpec `it` block.
-  [Example][subject-example].
-* Avoid using instance variables in tests.
+* Prefer minitest over rspec
+- Unit Testing/Model Testing for low-level logic
+- Controller Testing for authentications, permissions check(before_*), and things like whether a submission request work as expect.
+- System Testing for user interactions, things like whether all pages are working, and whether a submission will work
+- Avoid mock/stub
+- Don't miss edge cases
+- Use Property Based Testing
+- Avoid duplicate testing at different level
 * Disable real HTTP requests to external services with
   `WebMock.disable_net_connect!`.
 * Don't test private methods.
-* Test background jobs with a [`Delayed::Job` matcher].
-* Use [stubs and spies] \(not mocks\) in isolated tests.
-* Use a single level of abstraction within scenarios.
-* Use an `it` example or test method for each execution path through the method.
 * Use [assertions about state] for incoming messages.
-* Use stubs and spies to assert you sent outgoing messages.
-* Use a [Fake] to stub requests to external services.
-* Use integration tests to execute the entire app.
-* Use non-[SUT] methods in expectations when possible.
 
 [dependency injection]: http://en.wikipedia.org/wiki/Dependency_injection
 [subject-example]: ../style/testing/unit_test_spec.rb
@@ -183,18 +152,6 @@ Background Jobs
 * Store IDs, not `ActiveRecord` objects for cleaner serialization, then re-find
   the `ActiveRecord` object in the `perform` method.
 
-Email
------
-
-* Use [SendGrid] or [Amazon SES] to deliver email in staging and production
-  environments.
-* Use a tool like [ActionMailer Preview] to look at each created or updated mailer view
-  before merging. Use [MailView] gem unless using Rails version 4.1.0 or later.
-
-[Amazon SES]: http://robots.thoughtbot.com/post/3105121049/delivering-email-with-amazon-ses-in-a-rails-3-app
-[SendGrid]: https://devcenter.heroku.com/articles/sendgrid
-[MailView]: https://github.com/37signals/mail_view
-[ActionMailer Preview]: http://api.rubyonrails.org/v4.1.0/classes/ActionMailer/Base.html#class-ActionMailer::Base-label-Previewing+emails
 
 Web
 ---
