@@ -34,3 +34,6 @@ Sharing and collaborating docs and sheets.
 
 - `孜点-寻鹿高考-设计优化反馈-v1.2.5-20180518`
 - `孜点-技术开发部-寻鹿高考-开发文档`
+
+## [DiffMerge](https://www.sourcegear.com/diffmerge/)
+Visually compare and merge files
