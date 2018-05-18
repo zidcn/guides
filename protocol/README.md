@@ -3,6 +3,6 @@ Protocol
 
 Guides for getting things done.
 
-* [Communication](/protocol/communication)
+* [Tools](/protocol/tools)
 * [Git](/protocol/git)
 * [Rails](/protocol/rails)
