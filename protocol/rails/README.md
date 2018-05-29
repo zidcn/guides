@@ -15,7 +15,6 @@ Make choices
 -------------
 
 - Prefer minitest over rspec
-- Prefer kaminari over will_paginate
 - Prefer devise over other auth gems
 - Use [Bootstrap(v4)](http://getbootstrap.com/) for a full-stack project
 - Use [Stimulusjs](https://stimulusjs.org/) for a full-stack project
