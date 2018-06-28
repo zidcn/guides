@@ -112,7 +112,7 @@ View a list of new commits. View changed files. Merge branch into master.
     git log origin/master..<branch-name>
     git diff --stat origin/master
     git checkout master
-    git merge <branch-name> --ff-only
+    git merge <branch-name> --no-ff
     git push
 
 Delete your remote feature branch.
