@@ -4,6 +4,7 @@ Git Protocol
 A guide for programming within version control.
 
 [Pro Git](https://git-scm.com/book/en/v2)
+[Git Style Guide](https://github.com/JuanitoFatas/git-style-guide)
 
 Maintain a Repo
 ---------------
