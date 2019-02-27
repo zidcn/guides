@@ -45,7 +45,7 @@ We always keep three milestones open:
 - The next minor version: has issues we are currently working with. It will be closed once it's released.
 - The next of next minor version: has issues scheduled for the next phase. A new future-plan milestone will be opened when it replaces the current-working milestone.
 
-For example, the current release on production is v1.3.1. So we'll have the three milestones open:
+For example, the current release on production is v1.4.1. So we'll have the three milestones open:
 - long term
 - v1.4
 - v1.5
